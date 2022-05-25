@@ -16,13 +16,14 @@ function SideEffects() {
   useEffect( () => () => setEffectType("On Component Mount (On first render of this component) / Unmount"), [] );
   
   useEffect(() => {
-    let timer = setTimeout(() => {
-    setCount((count) => count + 1);
-  }, 5000);
+    setTimeout(() => {
+      setCount((count) => count + 1);
+    }, 2000);
 
-  return () => clearTimeout(timer) 
-  // This is a clean-up function of this useEffect
-  }, []);
+    return () => count > 5 ? setCount(0) : console.log("Count is less than or equal to 5");
+    //Here, our clean-up function will check the count.
+    //If count > 5 is true than it will reset the count.
+  }, [count]);
 
   return (
     <div>
