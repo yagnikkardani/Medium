@@ -14,16 +14,6 @@ function SideEffects() {
   useEffect( () => setEffectType("On Component Mount (On first render of this component) / Update anything in this component") );
   useEffect( () => () => setEffectType("On Component Mount (On first render of this component) / On count update / On component Unmount"), [ count ] );
   useEffect( () => () => setEffectType("On Component Mount (On first render of this component) / Unmount"), [] );
-  
-  useEffect(() => {
-    setTimeout(() => {
-      setCount((count) => count + 1);
-    }, 2000);
-
-    return () => count > 5 ? setCount(0) : console.log("Count is less than or equal to 5");
-    //Here, our clean-up function will check the count.
-    //If count > 5 is true than it will reset the count.
-  }, [count]);
 
   return (
     <div>
@@ -35,4 +25,4 @@ function SideEffects() {
     </div>
   );
 }
-export default SideEffects; // Exported our function component 'Counter'
+export default SideEffects; // Exported our function component 'SideEffects'
