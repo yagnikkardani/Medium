@@ -13,7 +13,7 @@ function SideEffects() {
   useEffect( () => setEffectType("On Component Mount (On first render of this component) / On Count Update"), [ count ] );
   useEffect( () => setEffectType("On Component Mount (On first render of this component) / Update anything in this component") );
   useEffect( () => () => setEffectType("On Component Mount (On first render of this component) / On count update / On component Unmount"), [ count ] );
-  useEffect( () => () => setEffectType("On Component Mount (On first render of this component) / Unsmount"), [] );
+  useEffect( () => () => setEffectType("On Component Mount (On first render of this component) / Unmount"), [] );
   
   useEffect(() => {
     let timer = setTimeout(() => {
